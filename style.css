@@ -1,0 +1,161 @@
+/* Reset and base setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+ .firstbg {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* soft shadow below image */
+}
+
+.firstbg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(100%);
+  display: block; /* removes tiny gaps in some browsers */
+}
+/* Heading Section */
+.heading {
+  text-align: center;
+  margin: 60px 20px 30px;
+}
+
+.heading h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #222;
+  letter-spacing: 1px;
+  font-family: "Henny Penny", system-ui ,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+/* Paragraph Section */
+.para {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 60px;
+}
+.para .container .op::first-letter {
+  font-size: 4.3rem;
+  font-weight: bold;      
+  float: left;             
+  line-height: 1;        
+  margin-right: 8px;       
+  color: #222;          
+  font-family: "Henny Penny", system-ui, sans-serif; 
+}
+.para .container {
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+.para p {
+  font-size: 1.05rem;
+  color: #555;
+  text-align: justify;
+  background: #fff;
+  padding: 25px 30px;
+  
+}
+
+/* Gallery Section */
+.photobox {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 384px; /* matches paragraph container */
+  width: 100%;
+  margin: 0 auto;
+  
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: row; /* side by side */
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  background: #fafafa;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  flex-wrap: nowrap; /* prevent wrapping on small screens */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.gallery-item .image img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0; /* prevent shrinking below 150px */
+}
+
+.gallery-item .text {
+  flex: 1;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #444;
+  text-align: justify;
+  min-width: 0; /* prevent overflow of text */
+}
+
+.gallery-item:nth-child(even) {
+  flex-direction: row-reverse; /* alternating pattern */
+}
+
+/* Responsive tweak to make images shrink slightly on very small screens */
+@media screen and (max-width: 500px) {
+  .gallery-item .image img {
+    width: 120px;
+    height: 120px;
+  }
+}
+@media screen and (min-width: 900px) {
+    .photobox{
+    max-width: 900px;
+  }
+}
+/* Footer Section */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: #111;
+  color: #eee;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+footer p:nth-child(1) {
+  font-weight: 600;
+  color: #fff;
+}
+footer p:nth-child(3) {
+  font-weight: 600;
+  color: #fff;
+}
