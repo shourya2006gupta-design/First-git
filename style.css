@@ -7,14 +7,26 @@
 }
 
 body {
-  background-color: #f9f9f9;
+  
+  background-color: #f7d8e2; /* fallback if image doesn't load */
   color: #333;
   line-height: 1.6;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Optional: soften the image using an overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5); /* white overlay for soft look */
+  backdrop-filter: blur(2px); /* optional soft blur effect */
+  z-index: -1; /* keeps it behind everything */
 }
 
  .firstbg {
-  height: 87vh;
+  height: 97vh;
   width: 100vw;
   overflow: hidden;
   position: relative;
@@ -63,9 +75,35 @@ body {
   font-family: "Henny Penny", system-ui, sans-serif; 
 }
 .para .container {
+  position: relative;
   max-width: 900px;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  box-shadow: 0 0 15px 10px rgba(175, 116, 167, 0.5);
+  overflow: hidden; /* ensures background image stays inside borders */
+}
+
+/* Add background image with opacity */
+.para .container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("photobg.jpg") center/cover no-repeat;
+  opacity: 0.45; /* adjust 0.1–0.3 for visibility */
+  z-index: 0;
+}
+
+/* Keep text above background */
+.para .container p {
+  position: relative;
+  z-index: 1;
+  font-size: 1.05rem;
+  color: #555;
+  text-align: justify;
+  background: transparent; /* remove white background */
+  padding: 25px 30px;
+  border-radius: 12px;
 }
 
 
@@ -76,6 +114,34 @@ body {
   background: #fff;
   padding: 25px 30px;
   
+}
+
+.sunflower-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🌻 sunflower behind container */
+.sunflower-wrap::before {
+  content: "";
+  position: absolute;
+  top: -70px;
+  right: -70px;
+  width: 160px;
+  height: 160px;
+  background: url("sunflower.png") no-repeat center/contain;
+  z-index: 0; /* behind container but above page background */
+  opacity: 0.85;
+  transform: rotate(-10deg);
+  pointer-events: none;
+}
+
+/* keep container above sunflower */
+.sunflower-wrap .container {
+  position: relative;
+  z-index: 1;
 }
 
 /* Gallery Section */
@@ -127,6 +193,10 @@ body {
 
 .gallery-item:nth-child(even) {
   flex-direction: row-reverse; /* alternating pattern */
+  background-color: rgba(253, 236, 239, 0.76);
+}
+.gallery-item:nth-child(odd) {
+  background-color: rgba(218, 167, 222, 0.24);
 }
 
 /* Responsive tweak to make images shrink slightly on very small screens */
@@ -145,10 +215,11 @@ body {
 footer {
   text-align: center;
   padding: 40px 20px;
-  background: #111;
+  background: #443B3B;
   color: #eee;
   font-size: 0.95rem;
   line-height: 1.8;
+  margin-top:30px;
 }
 
 footer p:nth-child(1) {
@@ -158,4 +229,4 @@ footer p:nth-child(1) {
 footer p:nth-child(3) {
   font-weight: 600;
   color: #fff;
-    }
+  }
