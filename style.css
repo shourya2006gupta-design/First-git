@@ -1,3 +1,6 @@
+t: 600;
+  color: #fff;
+  }
 /* Reset and base setup */
 * {
   margin: 0;
@@ -49,7 +52,7 @@ body::before {
 .heading h1 {
   font-size: 3.5rem;
   font-weight: 600;
-  color: #222;
+  color: #2f2f2f;
   letter-spacing: 1px;
   font-family: "Henny Penny", system-ui ,sans-serif;
   font-weight: 400;
@@ -71,7 +74,7 @@ body::before {
   float: left;             
   line-height: 1;        
   margin-right: 8px;       
-  color: #222;          
+  color: #2f2f2f;          
   font-family: "Henny Penny", system-ui, sans-serif; 
 }
 .para .container {
@@ -143,6 +146,20 @@ body::before {
   position: relative;
   z-index: 1;
 }
+.rose-wrap::before {
+  content: "";
+  position: absolute;
+  bottom: -67px;
+  left: -110px;
+  width: 250px;
+  height: 250px;
+  background: url("images (29).png") no-repeat center/contain;
+  z-index: 0; /* behind container but above page background */
+  opacity: 0.85;
+  transform: rotate(-8deg);
+  pointer-events: none;
+  z-index: 2;
+}
 
 /* Gallery Section */
 .photobox {
@@ -184,19 +201,21 @@ body::before {
 
 .gallery-item .text {
   flex: 1;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
-  color: #444;
+  color: #474747;
   text-align: justify;
   min-width: 0; /* prevent overflow of text */
 }
 
 .gallery-item:nth-child(even) {
   flex-direction: row-reverse; /* alternating pattern */
-  background-color: rgba(253, 236, 239, 0.76);
+  background: linear-gradient(135deg, #f7d8e2, #fdeff3)
+
+;
 }
 .gallery-item:nth-child(odd) {
-  background-color: rgba(218, 167, 222, 0.24);
+  background: linear-gradient(120deg, #f7d8e2, #FFE5D7);
 }
 
 /* Responsive tweak to make images shrink slightly on very small screens */
