@@ -1,6 +1,3 @@
-t: 600;
-  color: #fff;
-  }
 /* Reset and base setup */
 * {
   margin: 0;
@@ -35,6 +32,220 @@ body::before {
   position: relative;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* soft shadow below image */
 }
+
+.firstbg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(100%);
+  display: block; /* removes tiny gaps in some browsers */
+}
+/* Heading Section */
+.heading {
+  text-align: center;
+  margin: 60px 20px 30px;
+}
+
+.heading h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: #2f2f2f;
+  letter-spacing: 1px;
+  font-family: "Henny Penny", system-ui ,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+/* Paragraph Section */
+.para {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 60px;
+}
+.para .container .op::first-letter {
+  font-size: 3.5rem;
+  font-weight: bold;      
+  float: left;             
+  line-height: 1;        
+  margin-right: 8px;       
+  color: #2f2f2f;          
+  font-family: "Henny Penny", system-ui, sans-serif; 
+}
+.para .container {
+  position: relative;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  box-shadow: 0 0 15px 10px rgba(175, 116, 167, 0.5);
+  overflow: hidden; /* ensures background image stays inside borders */
+}
+
+/* Add background image with opacity */
+.para .container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("photobg.jpg") center/cover no-repeat;
+  opacity: 0.37; /* adjust 0.1–0.3 for visibility */
+  z-index: 0;
+}
+
+/* Keep text above background */
+.para .container p {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  color: #555;
+  text-align: justify;
+  background: transparent; /* remove white background */
+  padding: 25px 30px;
+  border-radius: 12px;
+}
+
+
+.para p {
+  font-size: 14px;
+  color: #555;
+  text-align: justify;
+  background: #fff;
+  padding: 25px 30px;
+  
+}
+
+.sunflower-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🌻 sunflower behind container */
+.sunflower-wrap::before {
+  content: "";
+  position: absolute;
+  top: -70px;
+  right: -70px;
+  width: 160px;
+  height: 160px;
+  background: url("sunflower.png") no-repeat center/contain;
+  z-index: 0; /* behind container but above page background */
+  opacity: 0.85;
+  transform: rotate(-10deg);
+  pointer-events: none;
+}
+
+/* keep container above sunflower */
+.sunflower-wrap .container {
+  position: relative;
+  z-index: 1;
+}
+.rose-wrap::before {
+  content: "";
+  position: absolute;
+  bottom: -67px;
+  left: -110px;
+  width: 250px;
+  height: 250px;
+  background: url("images (29).png") no-repeat center/contain;
+  z-index: 0; /* behind container but above page background */
+  opacity: 0.85;
+  transform: rotate(-8deg);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Gallery Section */
+.photobox {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 384px; /* matches paragraph container */
+  width: 100%;
+  margin: 0 auto;
+  
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: row; /* side by side */
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  background: #fafafa;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  flex-wrap: nowrap; /* prevent wrapping on small screens */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.gallery-item .image img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0; /* prevent shrinking below 150px */
+}
+
+.gallery-item .text {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #474747;
+  text-align: justify;
+  min-width: 0; /* prevent overflow of text */
+}
+
+.gallery-item:nth-child(even) {
+  flex-direction: row-reverse; /* alternating pattern */
+  background: linear-gradient(135deg, #f7d8e2, #fdeff3)
+
+;
+}
+.gallery-item:nth-child(odd) {
+  background: linear-gradient(120deg, #f7d8e2, #FFE5D7);
+}
+
+/* Responsive tweak to make images shrink slightly on very small screens */
+@media screen and (max-width: 500px) {
+  .gallery-item .image img {
+    width: 120px;
+    height: 120px;
+  }
+}
+@media screen and (min-width: 900px) {
+    .photobox{
+    max-width: 900px;
+  }
+}
+/* Footer Section */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: #443B3B;
+  color: #eee;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-top:30px;
+}
+
+footer p:nth-child(1) {
+  font-weight: 600;
+  color: #fff;
+}
+footer p:nth-child(3) {
+  font-weight: 600;
+  color: #fff;
+  }}
 
 .firstbg video {
   width: 100%;
